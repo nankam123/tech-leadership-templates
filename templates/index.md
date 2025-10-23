@@ -12,7 +12,7 @@ Explore practical templates demonstrating technology leadership, delivery manage
 <ul>
   {% for template in site.templates %}
     <li>
-      <a href="{{ template.url }}">{{ template.title | default: template.path | split: '/' | last | replace: '.md', '' }}</a>
+      <a href="{{ template.url }}">{{ template.title }}</a>
     </li>
   {% endfor %}
 </ul>
