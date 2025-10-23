@@ -2,6 +2,12 @@ theme: jekyll-theme-primer
 title: Tech Leadership Templates
 description: Curated templates showcasing technology leadership practices.
 
+templates:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+
 include:
   - templates
 collections:
