@@ -1,0 +1,9 @@
+theme: jekyll-theme-primer
+include:
+  - templates
+defaults:
+  - scope:
+      path: "templates"
+      type: "pages"
+    values:
+      layout: default
