@@ -1,9 +1,10 @@
 theme: jekyll-theme-primer
+title: Tech Leadership Templates
+description: Curated templates showcasing technology leadership practices.
+
 include:
   - templates
-defaults:
-  - scope:
-      path: "templates"
-      type: "pages"
-    values:
-      layout: default
+collections:
+  templates:
+    output: true
+    permalink: /templates/:path/
