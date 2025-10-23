@@ -1,5 +1,9 @@
-# Architecture Decision Record (ADR)
 
+---
+title: Architecture Decision Record
+---
+
+# Architecture Decision Record (ADR)
 **ADR Title:** [Short descriptive title]
 
 **Status:** Proposed / Accepted / Superseded  
