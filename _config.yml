@@ -1,12 +1,18 @@
-theme: jekyll-theme-primer
+# Site settings
 title: Tech Leadership Templates
-description: Curated templates showcasing technology leadership practices.
+description: Explore practical templates demonstrating technology leadership, delivery management, and engineering excellence.
+baseurl: ""   # leave empty if using https://username.github.io/repo-name
+url: "https://nankam123.github.io/tech-leadership-templates"
 
-
-
-include:
-  - templates
+# Collections
 collections:
   templates:
-    output: true
-    
+    output: true     # render pages for this collection
+    permalink: /templates/:path/   # URL structure
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-seo-tag
+  - jekyll-readme-index
