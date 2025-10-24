@@ -4,6 +4,12 @@ description: Explore practical templates demonstrating technology leadership, de
 baseurl: ""   # leave empty if using https://username.github.io/repo-name
 url: "https://nankam123.github.io/tech-leadership-templates"
 
+templates:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+
 # Collections
 collections:
   templates:
