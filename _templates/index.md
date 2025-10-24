@@ -10,7 +10,7 @@ Explore practical templates demonstrating technology leadership, delivery manage
 ---
 
 <ul>
-  {% for template in site.templates %}
+  {% for template in site.collections %}
     <li>
       <a href="{{ template.url }}">{{ template.title }}</a>
     </li>
