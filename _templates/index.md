@@ -1,4 +1,7 @@
-
+---
+layout: default
+title: Tech Leadership Templates
+---
 
 # 🧩 Tech Leadership Templates
 
@@ -7,9 +10,9 @@ Explore practical templates demonstrating technology leadership, delivery manage
 ---
 
 <ul>
-  {% for template in site.templates %}
+  {% for template in site.collections %}
     <li>
-      <a href="{{ template.url }}">{ template.title }</a>
+      <a href="{{ template.url }}">{{ template.title }}</a>
     </li>
   {% endfor %}
 </ul>
