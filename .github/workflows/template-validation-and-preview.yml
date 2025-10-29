@@ -30,26 +30,23 @@ jobs:
 
   generate-examples:
     name: Generate Missing Examples
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     needs: markdown-lint
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Generate Example Files
         run: |
-          mkdir -p examples
-          for file in templates/*.md; do
-            base=$(basename "$file" .md)
-            example_file="examples/${base}-example.md"
-            if [ ! -f "$example_file" ]; then
-              echo "# Example: ${base}" > "$example_file"
-              echo "" >> "$example_file"
-              echo "This is an auto-generated example file based on **$file**." >> "$example_file"
-              echo "" >> "$example_file"
-              echo "> Customize this with your real-world scenario." >> "$example_file"
-            fi
-          done
+          node scripts/generate-examples.js
 
       - name: Commit Generated Examples
         run: |
@@ -61,26 +58,25 @@ jobs:
 
   html-preview:
     name: Generate HTML Previews
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     needs: generate-examples
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Pandoc
-        run: sudo apt-get install -y pandoc
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install pandoc-bin
 
       - name: Generate HTML Files
-        run: |
-          mkdir -p docs/templates docs/examples
-          for file in templates/*.md; do
-            base=$(basename "$file" .md)
-            pandoc "$file" -s -o "docs/templates/${base}.html" --metadata title="${base}"
-          done
-          for file in examples/*.md; do
-            base=$(basename "$file" .md)
-            pandoc "$file" -s -o "docs/examples/${base}.html" --metadata title="${base}"
-          done
+        run: node scripts/generate-html-previews.js
 
       - name: Commit and Push HTML Previews
         run: |
