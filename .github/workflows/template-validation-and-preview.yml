@@ -85,3 +85,58 @@ jobs:
           git add docs/
           git commit -m "Auto-generate HTML previews" || echo "No new previews generated"
           git push || echo "No changes to push"
+  generate-index:
+    name: Generate Index HTML
+    runs-on: ubuntu-latest
+    needs: html-preview
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate index.html
+        run: |
+          cat > docs/index.html <<EOL
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tech Leadership Templates</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 2rem; }
+h1 { color: #222; }
+ul { line-height: 1.6; }
+a { text-decoration: none; color: #1a73e8; }
+a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>Tech Leadership Templates</h1>
+<p>Curated templates showcasing technology leadership practices.</p>
+
+<h2>Templates</h2>
+<ul>
+EOL
+
+          for f in docs/templates/*.html; do
+            base=$(basename "$f")
+            title="${base%.html}"
+            echo "<li><a href=\"templates/$base\">$title</a></li>" >> docs/index.html
+          done
+
+          echo "</ul><h2>Examples</h2><ul>" >> docs/index.html
+
+          for f in docs/examples/*.html; do
+            base=$(basename "$f")
+            title="${base%.html}"
+            echo "<li><a href=\"examples/$base\">$title</a></li>" >> docs/index.html
+          done
+
+          echo "</ul></body></html>" >> docs/index.html
+
+      - name: Commit index.html
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          git commit -m "Auto-generate landing page index.html" || echo "No changes to commit"
+          git push || echo "No changes to push"

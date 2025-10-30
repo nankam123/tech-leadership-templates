@@ -4,11 +4,11 @@ title: Innovation Proposal
 ---
 
 
-# Innovation Proposal
+
 
 **Idea Title:** [Name]  
 **Author:** [Your Name / Team]  
-**Date:** YYYY-MM-DD  
+**Date:** DD-MM-YYYY 
 
 ---
 

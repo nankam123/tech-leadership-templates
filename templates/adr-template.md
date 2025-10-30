@@ -1,14 +1,15 @@
 
 ---
-layout: default
-title: Architecture Decision Record
+title: Architecture Decision Record (ADR)
 ---
 
-# Architecture Decision Record (ADR)
+
+
+
 **ADR Title:** [Short descriptive title]
 
 **Status:** Proposed / Accepted / Superseded  
-**Date:** YYYY-MM-DD  
+**Date:** DD-MM-YYYY 
 **Author:** [Your Name / Team Name]
 
 ---

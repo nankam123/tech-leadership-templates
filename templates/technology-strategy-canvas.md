@@ -3,7 +3,8 @@
 title: Technology Strategy Canvas
 ---
 
-# Technology Strategy Canvas
+
+
 
 **Vision:**  
 Describe the long-term technology vision in one sentence.

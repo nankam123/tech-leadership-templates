@@ -3,7 +3,8 @@
 title: Technical Delivery Plan
 ---
 
-# Technical Delivery Plan
+
+
 
 **Initiative:** [Project/Program Name]  
 **Owner:** [Tech Lead / Delivery Manager]  

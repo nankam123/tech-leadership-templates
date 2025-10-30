@@ -1,12 +1,12 @@
 
 ---
-layout: default
 title: Engineering Readiness Assessment
----
+--- 
 
-# Engineering Readiness Assessment
 
-**Date:** YYYY-MM-DD  
+
+
+**Date:** DD-MM-YYYY  
 **Assessed by:** [Name]  
 
 ---
